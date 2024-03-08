@@ -11,3 +11,11 @@ Requirments:
 - Save address field as post meta.
 - Display date fields in format like 25 Dec 2023 21:00 and add these at the end of the post content on a single booking page.
 - Add google map with marker using address field after date fields.
+
+Installation:
+- Clone repository to your wp-content/plugins folder
+- Open file: wp-content/plugins/estatik-bookings/admin/class-estatik-bookings-admin.php
+- Find string "YOUR_API_KEY_HERE" and replace it with your Google Javascript Maps API key
+- Go to the admin panel -> plugins and activate "Estatik Bookings" plugin
+- Now you can manage bookings in the "Bookings" menu item
+- Enjoy! =)
