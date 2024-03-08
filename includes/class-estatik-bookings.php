@@ -151,12 +151,17 @@ class Estatik_Bookings {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-
 		$plugin_admin = new Estatik_Bookings_Admin( $this->get_plugin_name(), $this->get_version() );
 
+		// Actions
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'init', $plugin_admin, 'register_custom_post_types' );
+		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_booking_meta_box' );
+		$this->loader->add_action( 'save_post', $plugin_admin, 'save_booking_meta_box' );
 
+		// Filters
+		$this->loader->add_filter( 'the_content', $plugin_admin, 'modify_booking_content' );
 	}
 
 	/**
@@ -167,12 +172,10 @@ class Estatik_Bookings {
 	 * @access   private
 	 */
 	private function define_public_hooks() {
-
 		$plugin_public = new Estatik_Bookings_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
 	}
 
 	/**
@@ -214,5 +217,4 @@ class Estatik_Bookings {
 	public function get_version() {
 		return $this->version;
 	}
-
 }
