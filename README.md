@@ -19,3 +19,5 @@ Installation:
 - Go to the admin panel -> plugins and activate "Estatik Bookings" plugin
 - Now you can manage bookings in the "Bookings" menu item
 - Enjoy! =)
+
+To complete this task WP Plugin Boilerplate (https://github.com/DevinVinson/WordPress-Plugin-Boilerplate) was used just to speed up routine coding
