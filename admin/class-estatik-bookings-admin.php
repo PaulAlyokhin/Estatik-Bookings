@@ -179,9 +179,9 @@ class Estatik_Bookings_Admin {
 	 * Output booking meta data in the booking content
 	 * @param $content
 	 *
-	 * @return mixed|string
+	 * @return string
 	 */
-	public function modify_booking_content($content): mixed {
+	public function modify_booking_content($content): string {
 		if (is_single() && get_post_type() === 'booking') { // Single booking page
 			if ($start_date = get_post_meta(get_the_ID(), 'start_date', true)) { // Start date is not empty
 				$content .= sprintf('<p>%s %s</p>',
